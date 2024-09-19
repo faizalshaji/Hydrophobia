@@ -1,3 +1,3 @@
 ﻿
-using var game = new Hydrophobia.Game1();
+using var game = new Hydrophobia.Hydrophobia();
 game.Run();
