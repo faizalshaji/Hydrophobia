@@ -51,7 +51,7 @@ namespace Hydrophobia
 
         protected override void Draw(GameTime gameTime)
         {
-            renderSystem.Draw();
+            renderSystem.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

@@ -10,10 +10,10 @@ namespace Hydrophobia.Entities
         public FrogEntity(ContentManager content)
         {
             AddComponent(new PlayerComponent());
-            AddComponent(new PositionComponent(0, 0));
+            AddComponent(new PositionComponent(100, 100));
             AddComponent(new VelocityComponent(0, 0));
-            AddComponent(new SpriteComponent(content.Load<Texture2D>("ball"), 2, new Rectangle(0, 0, 50, 50)));
-            AddComponent(new ColliderComponent(new Rectangle(0, 0, 50, 50)));
+            AddComponent(new SpriteComponent(content.Load<Texture2D>("helicopter"), level: 2, size: new Rectangle(0, 0, 95, 32), frameCount: 8, frameTime: 0.1f));
+            AddComponent(new ColliderComponent(new Rectangle(0, 0, 95, 30)));
         }
     }
 }
