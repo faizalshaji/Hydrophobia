@@ -14,6 +14,7 @@ namespace Hydrophobia
         InputSystem inputSystem;
         MovementSystem movementSystem;
         RenderSystem renderSystem;
+        CollisionSystem collisionSystem;
 
         public Hydrophobia()
         {
@@ -25,8 +26,11 @@ namespace Hydrophobia
 
         protected override void Initialize()
         {
+            entities.Add(new EnviornmentEntity(Content));
+            entities.Add(new PondEntity(Content));
             entities.Add(new FrogEntity(Content));
             inputSystem = new InputSystem(entities);
+            collisionSystem = new CollisionSystem(entities);
             movementSystem = new MovementSystem(entities);
             base.Initialize();
         }
@@ -41,6 +45,7 @@ namespace Hydrophobia
         {
             inputSystem.Update();
             movementSystem.Update(gameTime);
+            collisionSystem.Update();
             base.Update(gameTime);
         }
 

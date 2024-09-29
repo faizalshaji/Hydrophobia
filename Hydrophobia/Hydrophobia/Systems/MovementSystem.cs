@@ -20,10 +20,20 @@ namespace Hydrophobia.Systems
             {
                 var position = entity.GetComponent<PositionComponent>();
                 var velocity = entity.GetComponent<VelocityComponent>();
+                var collider = entity.GetComponent<ColliderComponent>();
 
                 if (position != null && velocity != null)
                 {
                     position.Position += velocity.Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (collider != null)
+                    {
+                        collider.Collider = new Rectangle(
+                            (int)position.Position.X,
+                            (int)position.Position.Y,
+                            collider.Collider.Width,
+                            collider.Collider.Height);
+                    }
                 }
             };
         }
